@@ -1,15 +1,12 @@
+# 🏛️ CleanArchitecture
+
+[![GitHub](https://img.shields.io/badge/GitHub-CanDemirbuken-181717?style=for-the-badge&logo=github)](https://github.com/CanDemirbuken)
 ![.NET](https://img.shields.io/badge/.NET-10-512BD4?style=for-the-badge&logo=dotnet)
 ![ASP.NET Core](https://img.shields.io/badge/ASP.NET_Core-10-512BD4?style=for-the-badge&logo=dotnet)
-![C#](https://img.shields.io/badge/C%23-13-239120?style=for-the-badge&logo=csharp)
 ![EF Core](https://img.shields.io/badge/EF_Core-10-6DB33F?style=for-the-badge)
-![SQL Server](https://img.shields.io/badge/SQL_Server-CC2927?style=for-the-badge&logo=microsoftsqlserver)
-![Clean Architecture](https://img.shields.io/badge/Clean_Architecture-✔-0A66C2?style=for-the-badge)
 ![CQRS](https://img.shields.io/badge/CQRS-MediatR-FF6F00?style=for-the-badge)
-![AutoMapper](https://img.shields.io/badge/AutoMapper-Object_Mapping-FF4088?style=for-the-badge)
-![Swagger](https://img.shields.io/badge/Swagger-OpenAPI-85EA2D?style=for-the-badge&logo=swagger)
-![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
-
-# 🏛️ CleanArchitecture
+![Clean Architecture](https://img.shields.io/badge/Clean_Architecture-✔-0A66C2?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-In_Progress-orange?style=for-the-badge)
 
 CleanArchitecture is a hands-on ASP.NET Core 10 project built to learn and apply modern software architecture principles in a production-oriented manner.
 
