@@ -1,3 +1,12 @@
 ﻿namespace CleanArchitecture.Application.Common.Responses;
 
-public sealed record PaginationResponse<T>(IList<T> Items, int PageNumber, int PageSize, int TotalCount, int TotalPages);
+public sealed record PaginationResponse<T>
+{
+    public IList<T> Items { get; init; } = [];
+    public int PageNumber { get; init; }
+    public int PageSize { get; init; }
+    public int TotalCount { get; init; }
+    public int TotalPages { get; init; }
+    public bool HasPreviousPage => PageNumber > 1;
+    public bool HasNextPage => PageNumber < TotalPages;
+}

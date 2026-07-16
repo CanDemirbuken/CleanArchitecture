@@ -55,6 +55,13 @@ public sealed class CarService(ICarRepository carRepository, IUnitOfWork unitOfW
 
         int totalPages = (int)Math.Ceiling(totalCount / (double)request.PageSize);
 
-        return new PaginationResponse<GetAllCarResponse>(cars, request.PageNumber, request.PageSize, totalCount, totalPages);
+        return new PaginationResponse<GetAllCarResponse>
+        {
+            Items = cars,
+            PageNumber = request.PageNumber,
+            PageSize = request.PageSize,
+            TotalCount = totalCount,
+            TotalPages = totalPages
+        };
     }
 }
