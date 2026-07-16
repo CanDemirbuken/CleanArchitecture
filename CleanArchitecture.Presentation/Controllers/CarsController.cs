@@ -1,7 +1,11 @@
-﻿using CleanArchitecture.Application.Feature.CarFeatures.Commands.CreateCar;
+﻿using CleanArchitecture.Application.Common.Responses;
+using CleanArchitecture.Application.Feature.CarFeatures.Commands.CreateCar;
+using CleanArchitecture.Application.Feature.CarFeatures.Queries.GetAllCar;
+using CleanArchitecture.Application.Feature.CarFeatures.Queries.GetAllCarWithPagination;
 using CleanArchitecture.Domain.Dtos;
 using CleanArchitecture.Presentation.Abstraction;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArchitecture.Presentation.Controllers
@@ -16,13 +20,19 @@ namespace CleanArchitecture.Presentation.Controllers
         }
 
         [HttpGet]
-        public IActionResult Calculate()
+        [ProducesResponseType(typeof(IList<GetAllCarResponse>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
-            int x = 0;
-            int y = 0;
+            IList<GetAllCarResponse> response = await _mediator.Send(new GetAllCarQuery(), cancellationToken);
+            return Ok(response);
+        }
 
-            int result = x / y;
-            return Ok();
+        [HttpGet("[action]")]
+        [ProducesResponseType(typeof(PaginationResponse<GetAllCarResponse>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAllWithPagination([FromQuery] GetAllCarWithPaginationQuery request, CancellationToken cancellationToken)
+        {
+            PaginationResponse<GetAllCarResponse> response = await _mediator.Send(request, cancellationToken);
+            return Ok(response);
         }
     }
 }
