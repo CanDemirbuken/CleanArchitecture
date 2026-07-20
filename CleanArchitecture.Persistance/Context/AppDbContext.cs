@@ -1,13 +1,12 @@
 ﻿using CleanArchitecture.Domain.Abstraction;
 using CleanArchitecture.Domain.Entities;
 using GenericRepository;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitecture.Persistance.Context;
 
-public sealed class AppDbContext : IdentityDbContext<AppUser, IdentityRole, string>, IUnitOfWork
+public sealed class AppDbContext : IdentityDbContext<AppUser, Role, string>, IUnitOfWork
 {
     public AppDbContext(DbContextOptions options) : base(options) { }
 

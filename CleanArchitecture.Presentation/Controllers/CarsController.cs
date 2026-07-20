@@ -3,6 +3,7 @@ using CleanArchitecture.Application.Feature.CarFeatures.Commands.CreateCar;
 using CleanArchitecture.Application.Feature.CarFeatures.Queries.GetAllCar;
 using CleanArchitecture.Application.Feature.CarFeatures.Queries.GetAllCarWithPagination;
 using CleanArchitecture.Domain.Dtos;
+using CleanArchitecture.Infrastructure.Authorization;
 using CleanArchitecture.Presentation.Abstraction;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -12,6 +13,7 @@ namespace CleanArchitecture.Presentation.Controllers
 {
     public sealed class CarsController(IMediator mediator) : ApiController(mediator)
     {
+        [RoleFilter("Create")]
         [HttpPost("[action]")]
         public async Task<IActionResult> Create(CreateCarCommand request, CancellationToken cancellationToken)
         {
@@ -19,6 +21,7 @@ namespace CleanArchitecture.Presentation.Controllers
             return Ok(response);
         }
 
+        [RoleFilter("GetAll")]
         [HttpGet]
         [ProducesResponseType(typeof(IList<GetAllCarResponse>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)

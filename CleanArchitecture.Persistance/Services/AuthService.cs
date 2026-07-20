@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CleanArchitecture.Application.Abstractions;
+using CleanArchitecture.Application.Feature.AuthFeatures.Commands.CreateNewTokenByRefreshToken;
 using CleanArchitecture.Application.Feature.AuthFeatures.Commands.Login;
 using CleanArchitecture.Application.Feature.AuthFeatures.Commands.Register;
 using CleanArchitecture.Application.Services;
@@ -34,5 +35,21 @@ public class AuthService(UserManager<AppUser> userManager, IMapper mapper, IJwtP
 
         if (!result.Succeeded)
             throw new Exception(result.Errors.First().Description);
+    }
+
+    public async Task<LoginCommandResponse> CreateTokenByRefreshTokenAsync(CreateNewTokenByRefreshTokenCommand request, CancellationToken cancellationToken)
+    {
+        var user = await userManager.FindByIdAsync(request.UserId);
+        if (user is null)
+            throw new Exception("Kullanıcı bulunamadı!");
+
+        if (user.RefreshToken != request.RefreshToken)
+            throw new Exception("Refresh Token geçerli değil!");
+
+        if (user.RefreshTokenExpires < DateTime.Now)
+            throw new Exception("Refresh Token süresi dolmuş!");
+
+        LoginCommandResponse respone = await jwtProvider.CreateTokenAsync(user);
+        return respone;
     }
 }
