@@ -7,17 +7,17 @@
 ![Identity](https://img.shields.io/badge/Identity-Authentication-0A66C2?style=for-the-badge)
 ![JWT](https://img.shields.io/badge/JWT-Security-000000?style=for-the-badge)
 ![CQRS](https://img.shields.io/badge/CQRS-MediatR-FF6F00?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-In_Progress-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
 
 ---
 
 # 📖 About The Project
 
-CleanArchitecture is a personal learning project built with **ASP.NET Core 10** to study and apply modern backend development practices using the **Clean Architecture** approach.
+CleanArchitecture is a personal reference project built with **ASP.NET Core 10** to study and apply modern backend development practices using the **Clean Architecture** approach.
 
-Instead of focusing only on writing working code, this project aims to understand **why architectural decisions are made**, how different layers communicate, and how production-ready applications can be designed.
+The project demonstrates how to build a scalable, maintainable and testable backend application by applying modern architectural principles and production-oriented design patterns.
 
-The project evolves incrementally as new concepts are learned and implemented, making it both a learning journey and a long-term reference project.
+It serves as a long-term reference for future ASP.NET Core projects.
 
 ---
 
@@ -37,9 +37,10 @@ The project evolves incrementally as new concepts are learned and implemented, m
 - Dependency Injection
 - Repository Pattern
 - Middleware
+- Serilog
+- Swagger / OpenAPI
 - xUnit
 - Moq
-- Swagger / OpenAPI
 
 ---
 
@@ -66,23 +67,23 @@ test
 
 # 🏗️ Architecture
 
-The solution follows the **Clean Architecture** principles by separating responsibilities into independent layers.
+The solution follows **Clean Architecture** principles by separating responsibilities into independent layers.
 
 ### Domain
 
-Contains enterprise entities and core business rules.
+Contains enterprise entities, domain models and business rules.
 
 ### Application
 
-Contains CQRS, MediatR handlers, validation rules, abstractions and business logic.
+Contains CQRS, MediatR handlers, validation rules, abstractions, use cases and business logic.
 
 ### Persistence
 
-Responsible for Entity Framework Core, database context and data access implementations.
+Responsible for Entity Framework Core, DbContext, repositories and database access implementations.
 
 ### Infrastructure
 
-Contains external services such as authentication, mail services and framework integrations.
+Contains external services such as authentication, mail services, logging and framework integrations.
 
 ### Presentation
 
@@ -90,22 +91,26 @@ Contains API controllers and presentation-related components.
 
 ### WebApi
 
-Application entry point responsible for middleware configuration, authentication and dependency registration.
+Application entry point responsible for middleware configuration, authentication, dependency registration and API configuration.
 
 ---
 
 # ✨ Features
 
-## Authentication
+## Authentication & Authorization
 
 - ASP.NET Core Identity
 - User Registration
 - User Login
 - JWT Authentication
 - Refresh Token
+- Role-based Authorization
+- Custom Authorization Attribute
 - Mail Service
 
-## Architecture
+---
+
+## Clean Architecture
 
 - Clean Architecture
 - CQRS
@@ -113,18 +118,33 @@ Application entry point responsible for middleware configuration, authentication
 - Repository Pattern
 - Dependency Injection
 - AutoMapper
+- Service Installer Pattern
 
-## Validation
+---
+
+## Validation & Middleware
 
 - FluentValidation
 - Validation Pipeline
 - Global Exception Middleware
 
+---
+
 ## API
 
 - RESTful API
-- Swagger Documentation
-- Authentication & Authorization
+- Swagger / OpenAPI
+- JWT Authentication
+- Authorization
+- CORS Configuration
+
+---
+
+## Logging
+
+- Serilog Integration
+
+---
 
 ## Testing
 
@@ -133,94 +153,53 @@ Application entry point responsible for middleware configuration, authentication
 
 ---
 
-# 📈 Current Progress
+# 📚 Implemented Concepts
 
-## ✅ Completed
-
-### Project Setup
-
-- [x] Solution architecture
-- [x] Layered project structure
-- [x] Dependency Injection
-- [x] Entity Framework Core integration
-- [x] Entity configurations
-
-### CQRS
-
-- [x] MediatR integration
-- [x] CQRS foundation
-- [x] Command & Query handlers
-
-### Authentication
-
-- [x] ASP.NET Core Identity
-- [x] User Registration
-- [x] User Login
-- [x] JWT Authentication
-- [x] Refresh Token implementation
-- [x] Mail Service integration
-
-### Validation
-
-- [x] FluentValidation
-- [x] Validation Pipeline
-- [x] Global Exception Middleware
-
-### Testing
-
-- [x] Unit Tests
-- [x] Moq
-
----
-
-## 🚧 Roadmap
-
-- [ ] Authorization
-- [ ] Role-based Authorization
-- [ ] Logging
+- Clean Architecture
+- SOLID Principles
+- CQRS
+- MediatR
+- Dependency Injection
+- Repository Pattern
+- Generic Repository
+- ASP.NET Core Identity
+- JWT Authentication
+- Refresh Token
+- Authorization
+- Custom Authorization Attribute
+- FluentValidation
+- Validation Pipeline
+- Exception Middleware
+- Entity Framework Core
+- AutoMapper
+- Service Installer Pattern
+- CORS
+- Swagger
+- Serilog
+- Unit Testing
 
 ---
 
 # 🎯 Project Goals
 
-This repository is intended to become a production-oriented reference project that demonstrates modern backend development practices using ASP.NET Core and Clean Architecture.
+The primary goal of this project is to demonstrate how modern ASP.NET Core applications can be developed using Clean Architecture while keeping the codebase scalable, maintainable and testable.
 
-The primary objectives are:
+This project serves as a practical reference for:
 
-- Learn Clean Architecture principles
-- Master CQRS with MediatR
-- Build scalable backend applications
-- Understand authentication and authorization
-- Write maintainable and testable code
-- Apply production-oriented design patterns
-
----
-
-# 📚 Learning Outcomes
-
-Throughout this project I practice and improve my understanding of:
-
-- Software Architecture
-- SOLID Principles
 - Clean Architecture
-- CQRS
-- MediatR
+- Authentication & Authorization
+- CQRS with MediatR
 - Dependency Injection
-- ASP.NET Core Identity
-- JWT Authentication
-- Refresh Token
-- FluentValidation
+- Validation
 - Middleware
-- Entity Framework Core
-- Unit Testing
-- Repository Pattern
-- API Design
+- Logging
+- Testing
 
 ---
 
 # 🤝 Contributing
 
-This repository is primarily maintained as a personal learning project.
+This repository is maintained as a personal learning and reference project.
 
 Suggestions, discussions and constructive feedback are always welcome.
 
@@ -230,7 +209,7 @@ Suggestions, discussions and constructive feedback are always welcome.
 
 This project is inspired by Clean Architecture principles and modern ASP.NET Core development practices.
 
-It is continuously improved as new architectural concepts and production-ready techniques are learned.
+It was developed to better understand architectural design decisions and serve as a reusable reference for future backend projects.
 
 ---
 
